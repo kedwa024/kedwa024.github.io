@@ -1,53 +1,137 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-<style>
-body {
-    background: Teal;
-    font-family: Verdana;
-}  
-#content {
-    background: lightyellow;
-    min-width: 200px;
-    max-width: 500px;
-    padding: 50px;
-    margin: auto;
-    margin-top: -50px;
-    line-height: 150%;
-}
-h1 {
-    letter-spacing: 2px;
-    font-size: 16px;
-    text-align: center;
-}
-h2 {
-    font-size: 14px;
-    text-align: center;
-}
-h3 {
-    font-size: 12px;
-}
-</style>
-</head>    
-<body>
-    <div id="content">
-        <h1>Kiersten Ann Edwards</h1>
-        <h2>Junior in Greenville, South Carolina</h2>
-        
-         <p>I am a Junior at Bob Jones University studying Business Administration. This is my second degree; my first was Culinary Arts    
-     I have worked in many different places. I even own my catering business back home, and I'm also working on trying to build my own Venue. </p>
-         <p>
-            
-            <a href= You can email me 
-            <a href="Kedwa024@students.bju.edu">here</a>.
-         </p> 
-         <p>
-            I enjoy so many things like music, cooking, and cleaning.
-         </p>
-        <h3>EDUCATION</h3>
-        Budiness Aministration<br />
-        Bob Jones University<br />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Kiersten Ann Edwards is a Business Administration student and catering business owner based in Greenville, South Carolina.">
+  <meta name="theme-color" content="#f7f5ef">
+  <title>Kiersten Ann Edwards</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --paper: #f7f5ef;
+      --white: #fffdf8;
+      --ink: #162f2b;
+      --muted: #465954;
+      --teal: #12483f;
+      --teal-dark: #103c35;
+      --sage: #d4e0c8;
+      --line: #d9ddd2;
+      --serif: Georgia, "Times New Roman", serif;
+      --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
 
-        <img src="Departmental Logo_School of Business-BW.png" />
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--paper); color: var(--ink); font: 1rem/1.65 var(--sans); }
+    h1, h2, h3, p { margin: 0; }
+    a { color: inherit; text-underline-offset: 0.25em; }
+    a:focus-visible { outline: 2px solid currentColor; outline-offset: 5px; }
+    .wrap { width: min(100% - 3rem, 70rem); margin-inline: auto; }
+    .skip { position: absolute; inset: 0 auto auto 0; padding: 0.6rem 1rem; background: var(--white); transform: translateY(-110%); z-index: 2; }
+    .skip:focus { transform: translateY(0); }
+
+    .masthead { border-bottom: 1px solid var(--line); }
+    .masthead .wrap { min-height: 5rem; display: flex; align-items: center; justify-content: space-between; gap: 1rem 2rem; }
+    .wordmark { display: inline-flex; gap: 0.8rem; align-items: center; text-decoration: none; font-size: 0.92rem; font-weight: 650; }
+    .initials { display: grid; place-items: center; width: 2.35rem; height: 2.35rem; border: 1px solid #a5b4a5; border-radius: 50%; font: 1rem var(--serif); }
+    nav { display: flex; flex-wrap: wrap; column-gap: clamp(1rem, 3vw, 2rem); row-gap: 0.4rem; font-size: 0.88rem; font-weight: 600; }
+    nav a { text-decoration: none; }
+    nav a:hover, .wordmark:hover { text-decoration: underline; }
+
+    .hero { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(2rem, 6vw, 5.5rem); align-items: center; padding-block: clamp(3.25rem, 8vw, 7.25rem); }
+    .eyebrow { color: var(--teal); font-size: 0.76rem; font-weight: 750; letter-spacing: 0.13em; text-transform: uppercase; }
+    .hero h1 { margin-block: 0.8rem 1.15rem; font: 400 clamp(3.25rem, 7.3vw, 6.75rem)/0.98 var(--serif); letter-spacing: -0.07em; }
+    .hero h1 span { display: block; }
+    .intro { max-width: 31rem; color: var(--muted); font-size: clamp(1rem, 2vw, 1.2rem); }
+    .button { display: inline-flex; gap: 0.8rem; align-items: center; justify-content: center; min-height: 2.85rem; padding: 0.56rem 1.12rem; background: var(--teal); color: var(--white); font-size: 0.9rem; font-weight: 650; text-decoration: none; }
+    .button:hover { background: var(--teal-dark); text-decoration: underline; }
+    .hero .button { margin-top: 1.65rem; }
+    .identity { position: relative; isolation: isolate; overflow: hidden; aspect-ratio: 1.1; min-height: 12rem; display: grid; place-items: center; background: var(--teal); color: var(--sage); }
+    .identity::before, .identity::after { position: absolute; content: ""; pointer-events: none; inset: 1rem; border: 1px solid #b5ccaa5c; }
+    .identity::after { inset: auto; width: 82%; aspect-ratio: 1; border-radius: 50%; box-shadow: 0 0 0 1.6rem #ffffff07, 0 0 0 3.2rem #ffffff07; }
+    .identity span { font: 400 clamp(5rem, 13vw, 10rem)/1 var(--serif); letter-spacing: -0.1em; padding-right: 0.1em; }
+
+    .about { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(2rem, 6vw, 5.5rem); border-top: 1px solid var(--line); padding-block: clamp(2.6rem, 6vw, 5rem); }
+    h2 { font: 400 clamp(2.15rem, 4.25vw, 3.35rem)/1.12 var(--serif); letter-spacing: -0.045em; }
+    .about-copy p { max-width: 37rem; color: var(--muted); margin-top: 0.9rem; }
+    .education { background: var(--white); border: 1px solid var(--line); padding: clamp(1.25rem, 3.3vw, 2rem); }
+    .education h2 { font-size: 2rem; }
+    .education dl { margin: 1rem 0 0; }
+    .education .entry + .entry { border-top: 1px solid var(--line); margin-top: 0.85rem; padding-top: 0.85rem; }
+    .education dt { font-weight: 680; }
+    .education dd { margin: 0.1rem 0 0; color: var(--muted); font-size: 0.92rem; }
+    .education-logo { display: block; width: min(100%, 15.5rem); height: auto; margin: 0.8rem 0 0 -0.45rem; }
+
+    .contact { background: var(--teal-dark); color: var(--white); }
+    .contact .wrap { display: flex; flex-wrap: wrap; gap: 0.8rem 2rem; align-items: center; justify-content: space-between; padding-block: 2.45rem; }
+    .contact h2 { font-size: 2.25rem; }
+    .contact a { color: #e0ebd6; overflow-wrap: anywhere; }
+    .contact a:hover { color: #fff; }
+
+    @media (max-width: 44rem) {
+      .wrap { width: calc(100% - 2rem); }
+      .masthead .wrap { padding-block: 0.85rem; min-height: auto; flex-wrap: wrap; }
+      .hero, .about { grid-template-columns: minmax(0, 1fr); }
+      .hero { gap: 2rem; }
+      .identity { aspect-ratio: 2.1; }
+      .identity::after { width: 52%; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="masthead">
+    <div class="wrap">
+      <a class="wordmark" href="#main"><span class="initials" aria-hidden="true">KE</span>Kiersten Ann Edwards</a>
+      <nav aria-label="Main navigation">
+        <a href="#about">About</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+      </nav>
     </div>
+  </header>
+  <main id="main">
+    <section class="wrap hero" aria-labelledby="page-title">
+      <div>
+        <p class="eyebrow">Greenville, South Carolina</p>
+        <h1 id="page-title">Kiersten <span>Ann Edwards</span></h1>
+        <p class="intro">Business Administration student, Culinary Arts graduate, and catering business owner.</p>
+        <a class="button" href="mailto:Kedwa024@students.bju.edu">Email me</a>
+      </div>
+      <div class="identity" aria-hidden="true"><span>KE</span></div>
+    </section>
+
+    <div class="wrap about">
+      <section class="about-copy" id="about" aria-labelledby="about-title">
+        <h2 id="about-title">About me</h2>
+        <p>I’m a junior at Bob Jones University, where I’m pursuing my second degree in Business Administration. My first degree was in Culinary Arts.</p>
+        <p>I’ve worked in a variety of settings and own a catering business in my hometown. I’m also working toward opening my own event venue.</p>
+        <p>In my free time, I enjoy music, cooking, and cleaning.</p>
+      </section>
+      <section class="education" id="education" aria-labelledby="education-title">
+        <h2 id="education-title">Education</h2>
+        <dl>
+          <div class="entry">
+            <dt>Business Administration</dt>
+            <dd>
+              Bob Jones University · Junior
+              <img class="education-logo" src="bju-school-of-business.png" width="782" height="267" alt="Bob Jones University School of Business">
+            </dd>
+          </div>
+          <div class="entry">
+            <dt>Culinary Arts</dt>
+            <dd>Degree completed</dd>
+          </div>
+        </dl>
+      </section>
+    </div>
+
+    <section class="contact" id="contact" aria-labelledby="contact-title">
+      <div class="wrap">
+        <h2 id="contact-title">Get in touch</h2>
+        <a href="mailto:Kedwa024@students.bju.edu">Kedwa024@students.bju.edu</a>
+      </div>
+    </section>
+  </main>
 </body>
 </html>
