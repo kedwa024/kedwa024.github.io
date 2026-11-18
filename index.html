@@ -4,7 +4,19 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Kiersten Ann Edwards is a Business Administration student and catering business owner based in Greenville, South Carolina.">
-  <meta name="theme-color" content="#f7f5ef">
+  <meta name="color-scheme" content="light dark">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <script>
+    const themeStorageKey = "kiersten-edwards-theme";
+    try {
+      const savedTheme = localStorage.getItem(themeStorageKey);
+      if (savedTheme === "light" || savedTheme === "dark") {
+        document.documentElement.dataset.theme = savedTheme;
+      }
+    } catch {
+      // The system preference still applies when storage is unavailable.
+    }
+  </script>
   <title>Kiersten Ann Edwards</title>
   <style>
     :root {
@@ -19,6 +31,28 @@
       --line: #d9ddd2;
       --serif: Georgia, "Times New Roman", serif;
       --sans: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --paper: #111e1b;
+      --white: #1b2b27;
+      --ink: #f1f4eb;
+      --muted: #c2d0c7;
+      --teal: #d4e0c8;
+      --line: #364943;
+    }
+
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme]) {
+        color-scheme: dark;
+        --paper: #111e1b;
+        --white: #1b2b27;
+        --ink: #f1f4eb;
+        --muted: #c2d0c7;
+        --teal: #d4e0c8;
+        --line: #364943;
+      }
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -37,16 +71,20 @@
     nav { display: flex; flex-wrap: wrap; column-gap: clamp(1rem, 3vw, 2rem); row-gap: 0.4rem; font-size: 0.88rem; font-weight: 600; }
     nav a { text-decoration: none; }
     nav a:hover, .wordmark:hover { text-decoration: underline; }
+    .header-controls { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem 1.5rem; }
+    .theme-toggle { border: 1px solid var(--line); border-radius: 0.3rem; padding: 0.4rem 0.75rem; cursor: pointer; color: var(--ink); background: var(--white); font: 600 0.83rem/1.4 var(--sans); }
+    .theme-toggle:hover { border-color: var(--muted); }
+    .theme-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
 
     .hero { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr); gap: clamp(2rem, 6vw, 5.5rem); align-items: center; padding-block: clamp(3.25rem, 8vw, 7.25rem); }
     .eyebrow { color: var(--teal); font-size: 0.76rem; font-weight: 750; letter-spacing: 0.13em; text-transform: uppercase; }
     .hero h1 { margin-block: 0.8rem 1.15rem; font: 400 clamp(3.25rem, 7.3vw, 6.75rem)/0.98 var(--serif); letter-spacing: -0.07em; }
     .hero h1 span { display: block; }
     .intro { max-width: 31rem; color: var(--muted); font-size: clamp(1rem, 2vw, 1.2rem); }
-    .button { display: inline-flex; gap: 0.8rem; align-items: center; justify-content: center; min-height: 2.85rem; padding: 0.56rem 1.12rem; background: var(--teal); color: var(--white); font-size: 0.9rem; font-weight: 650; text-decoration: none; }
+    .button { display: inline-flex; gap: 0.8rem; align-items: center; justify-content: center; min-height: 2.85rem; padding: 0.56rem 1.12rem; background: #12483f; color: #fffdf8; font-size: 0.9rem; font-weight: 650; text-decoration: none; }
     .button:hover { background: var(--teal-dark); text-decoration: underline; }
     .hero .button { margin-top: 1.65rem; }
-    .identity { position: relative; isolation: isolate; overflow: hidden; aspect-ratio: 1.1; min-height: 12rem; display: grid; place-items: center; background: var(--teal); color: var(--sage); }
+    .identity { position: relative; isolation: isolate; overflow: hidden; aspect-ratio: 1.1; min-height: 12rem; display: grid; place-items: center; background: #12483f; color: var(--sage); }
     .identity::before, .identity::after { position: absolute; content: ""; pointer-events: none; inset: 1rem; border: 1px solid #b5ccaa5c; }
     .identity::after { inset: auto; width: 82%; aspect-ratio: 1; border-radius: 50%; box-shadow: 0 0 0 1.6rem #ffffff07, 0 0 0 3.2rem #ffffff07; }
     .identity span { font: 400 clamp(5rem, 13vw, 10rem)/1 var(--serif); letter-spacing: -0.1em; padding-right: 0.1em; }
@@ -60,9 +98,9 @@
     .education .entry + .entry { border-top: 1px solid var(--line); margin-top: 0.85rem; padding-top: 0.85rem; }
     .education dt { font-weight: 680; }
     .education dd { margin: 0.1rem 0 0; color: var(--muted); font-size: 0.92rem; }
-    .education-logo { display: block; width: min(100%, 15.5rem); height: auto; margin: 0.8rem 0 0 -0.45rem; }
+    .education-logo { display: block; width: min(100%, 15.5rem); height: auto; margin: 0.8rem 0 0; background: #fffdf8; border-radius: 0.2rem; }
 
-    .contact { background: var(--teal-dark); color: var(--white); }
+    .contact { background: var(--teal-dark); color: #fffdf8; }
     .contact .wrap { display: flex; flex-wrap: wrap; gap: 0.8rem 2rem; align-items: center; justify-content: space-between; padding-block: 2.45rem; }
     .contact h2 { font-size: 2.25rem; }
     .contact a { color: #e0ebd6; overflow-wrap: anywhere; }
@@ -83,11 +121,14 @@
   <header class="masthead">
     <div class="wrap">
       <a class="wordmark" href="#main"><span class="initials" aria-hidden="true">KE</span>Kiersten Ann Edwards</a>
-      <nav aria-label="Main navigation">
-        <a href="#about">About</a>
-        <a href="#education">Education</a>
-        <a href="#contact">Contact</a>
-      </nav>
+      <div class="header-controls">
+        <nav aria-label="Main navigation">
+          <a href="#about">About</a>
+          <a href="#education">Education</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <button class="theme-toggle" type="button" aria-pressed="false" hidden>Dark mode</button>
+      </div>
     </div>
   </header>
   <main id="main">
@@ -114,7 +155,7 @@
           <div class="entry">
             <dt>Business Administration</dt>
             <dd>
-              Bob Jones University · Junior
+              <a href="https://www.bju.edu/">Bob Jones University</a> · Junior
               <img class="education-logo" src="bju-school-of-business.png" width="782" height="267" alt="Bob Jones University School of Business">
             </dd>
           </div>
@@ -133,5 +174,33 @@
       </div>
     </section>
   </main>
+  <script>
+    const systemTheme = window.matchMedia("(prefers-color-scheme: dark)");
+    const themeToggle = document.querySelector(".theme-toggle");
+    const page = document.documentElement;
+
+    function isDarkMode() {
+      return page.dataset.theme ? page.dataset.theme === "dark" : systemTheme.matches;
+    }
+
+    function updateThemeToggle() {
+      themeToggle.setAttribute("aria-pressed", String(isDarkMode()));
+    }
+
+    themeToggle.addEventListener("click", () => {
+      const theme = isDarkMode() ? "light" : "dark";
+      page.dataset.theme = theme;
+      try {
+        localStorage.setItem(themeStorageKey, theme);
+      } catch {
+        // The current page still switches themes.
+      }
+      updateThemeToggle();
+    });
+
+    systemTheme.addEventListener("change", updateThemeToggle);
+    updateThemeToggle();
+    themeToggle.hidden = false;
+  </script>
 </body>
 </html>
